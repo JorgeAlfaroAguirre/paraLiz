@@ -8,12 +8,11 @@ function App() {
 
   const fetchValoraciones = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/valoracion/filter', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:8080/api/valoracion/filter/${juegoId}`, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ juegoId: parseInt(juegoId) }),
+        }
       });
       const result = await response.json();
       setData(result);
